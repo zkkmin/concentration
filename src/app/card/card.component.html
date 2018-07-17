@@ -1,0 +1,12 @@
+
+<div (click)="flip()">
+    <div *ngIf="card.isFaceUP">
+        {{card.cardNumber}}
+    </div>
+    <div *ngIf="!card.isFaceUP">
+        Cover
+    </div>
+    
+</div>
+
+
