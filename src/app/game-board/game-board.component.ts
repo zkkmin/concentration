@@ -17,6 +17,8 @@ export class GameBoardComponent implements OnInit {
 
   getGame (): void {
     this.deck = this.gameService.createDeck(this.numberOfCards);
+    console.log(this.deck);
+    this.deck.flipDown();
     this.game = this.gameService.getGame(this.deck);
   }
 

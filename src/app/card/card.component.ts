@@ -7,7 +7,16 @@ import { Card } from '../card';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() card: Card;
+  private _card;
+
+  @Input()
+  set card(card: Card) {
+    this._card = card;
+  }
+
+  get card(): Card {
+    return this._card;
+  }
 
   constructor() {
    }
@@ -16,8 +25,10 @@ export class CardComponent implements OnInit {
   }
 
   flip() {
+    console.log(this.card.isFaceUp);
     if (!this.card.isFaceUp) {
       this.card.isFaceUp = true;
+      console.log(this.card.isFaceUp);
     }
   }
 
