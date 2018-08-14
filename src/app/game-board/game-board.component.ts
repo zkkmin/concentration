@@ -20,7 +20,28 @@ export class GameBoardComponent implements OnInit {
     console.log(this.deck);
     this.deck.flipDown();
     this.game = this.gameService.getGame(this.deck);
+
   }
+
+  onflippedUp(isUP: boolean) {
+    console.log('Game board');
+    console.log(isUP);
+    // Usage!
+    this.sleep(500).then(() => {
+      // Do something after the sleep!
+      this.game.checkScore();
+    });
+  }
+
+  // https://zeit.co/blog/async-and-await
+  sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
+  restart() {
+    this.getGame();
+  }
+
 
   ngOnInit() {
     // create cards

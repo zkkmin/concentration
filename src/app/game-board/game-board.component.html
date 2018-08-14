@@ -1,8 +1,12 @@
 
-<ul class="flex-container wrap" >
-  <li class="flex-item" *ngFor="let card of deck.cards" >
-    <app-card [card]="card"></app-card>
-  </li>
-    
-
-</ul>
+<div>
+  <h2>Score: {{game.match}} / Move: {{game.move}} => Score {{game.score}} | <a href="#" (click)="restart()">Restart</a></h2>
+  
+</div>
+<div>
+  <ul class="flex-container wrap" >
+    <li class="flex-item" *ngFor="let card of deck.cards" >
+      <app-card [card]="card" (flippedUp)="onflippedUp($event)" ></app-card>
+    </li>
+  </ul>
+</div>
